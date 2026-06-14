@@ -1,0 +1,38 @@
+{
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "frontend/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/predict",
+      "dest": "/app.py"
+    },
+    {
+      "src": "/health",
+      "dest": "/app.py"
+    },
+    {
+      "src": "/docs",
+      "dest": "/app.py"
+    },
+    {
+      "src": "/openapi.json",
+      "dest": "/app.py"
+    },
+    {
+      "src": "/",
+      "dest": "/frontend/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/$1"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetBtn = document.getElementById('reset-btn');
 
     // API URL - change if hosted elsewhere
-    const API_URL = 'http://localhost:8000/predict';
+    const API_URL = '/predict';
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
