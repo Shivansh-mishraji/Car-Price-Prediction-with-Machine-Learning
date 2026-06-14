@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoValuate - AI Car Price Predictor</title>
+    <meta name="description" content="Predict your car's selling price instantly with our advanced machine learning model.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <main class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fa-solid fa-car-side"></i>
+                <h1>AutoValuate</h1>
+            </div>
+            <p class="subtitle">AI-Powered Vehicle Valuation</p>
+        </header>
+
+        <section class="glass-panel">
+            <div class="form-header">
+                <h2>Vehicle Details</h2>
+                <p>Enter your car's information to get an instant market value estimate.</p>
+            </div>
+
+            <form id="prediction-form">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="Year"><i class="fa-regular fa-calendar"></i> Purchase Year</label>
+                        <input type="number" id="Year" name="Year" placeholder="e.g. 2018" min="1990" max="2026" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Present_Price"><i class="fa-solid fa-tag"></i> Current Showroom Price (Lakhs)</label>
+                        <input type="number" id="Present_Price" name="Present_Price" placeholder="e.g. 8.5" step="0.01" min="0" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Driven_kms"><i class="fa-solid fa-gauge-high"></i> Driven Kilometers</label>
+                        <input type="number" id="Driven_kms" name="Driven_kms" placeholder="e.g. 45000" min="0" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Owner"><i class="fa-solid fa-user-group"></i> Previous Owners</label>
+                        <select id="Owner" name="Owner" required>
+                            <option value="0">First Owner (0)</option>
+                            <option value="1">Second Owner (1)</option>
+                            <option value="2">Third Owner or More (2+)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Fuel_Type"><i class="fa-solid fa-gas-pump"></i> Fuel Type</label>
+                        <select id="Fuel_Type" name="Fuel_Type" required>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="CNG">CNG</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Transmission"><i class="fa-solid fa-gears"></i> Transmission</label>
+                        <select id="Transmission" name="Transmission" required>
+                            <option value="Manual">Manual</option>
+                            <option value="Automatic">Automatic</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label for="Selling_type"><i class="fa-solid fa-store"></i> Seller Type</label>
+                        <div class="radio-group">
+                            <input type="radio" id="seller_dealer" name="Selling_type" value="Dealer" checked>
+                            <label for="seller_dealer" class="radio-label">Dealer</label>
+                            
+                            <input type="radio" id="seller_individual" name="Selling_type" value="Individual">
+                            <label for="seller_individual" class="radio-label">Individual</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="predict-btn" id="submit-btn">
+                    <span>Calculate Value</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+            
+            <div id="loading-state" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing market data...</p>
+            </div>
+
+            <div id="result-container" class="hidden">
+                <div class="result-card">
+                    <h3>Estimated Selling Price</h3>
+                    <div class="price-display">
+                        <span class="currency">₹</span>
+                        <span id="predicted-price">0.00</span>
+                        <span class="unit">Lakhs</span>
+                    </div>
+                    <p class="disclaimer">*This is an AI-generated estimate based on historical market data.</p>
+                </div>
+                <button id="reset-btn" class="secondary-btn">Evaluate Another Car</button>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Powered by Machine Learning &copy; 2026</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
