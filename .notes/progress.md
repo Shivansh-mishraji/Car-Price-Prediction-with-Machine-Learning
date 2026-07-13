@@ -11,4 +11,4 @@ Updated: 2026-07-13
 
 ## Notes
 
-Plan: add input validation to all public API endpoints.
+Reminder: write tests before implementation when possible.
