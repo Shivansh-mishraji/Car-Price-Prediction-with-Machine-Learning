@@ -1,10 +1,10 @@
 # Developer Notes
 
-Last updated: 2026-07-13 13:07
+Last updated: 2026-07-14 14:01
 
 ## Active Considerations
 
-- Reviewed the codebase for unused dependencies to remove.
+- Studied monitoring and alerting tools: Sentry, Datadog, Prometheus.
 
 ## Pending Reviews
 
